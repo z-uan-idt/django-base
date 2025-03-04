@@ -5,10 +5,10 @@ from .views.user_view import APIUser
 from .views.auth_view import APIAuth
 
 
-api_router = DefaultRouter(trailing_slash=False)
-api_router.register(prefix="user", viewset=APIUser, basename="user")
-api_router.register(prefix="auth", viewset=APIAuth, basename="auth")
+v1_api_router = DefaultRouter(trailing_slash=False)
+v1_api_router.register(prefix="user", viewset=APIUser, basename="user")
+v1_api_router.register(prefix="auth", viewset=APIAuth, basename="auth")
 
 users_urlpatterns = [
-    path("api/v1/", include(api_router.urls)),
+    path("api/v1/", include(v1_api_router.urls)),
 ]
